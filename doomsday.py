@@ -33,10 +33,7 @@ def getYearAnchor(year):
 def getDayAnchor(year, month, day):
     days = list(dayAnchors.keys())
     yearAnchor = getYearAnchor(year)
-    if year % 4 == 0:
-        doom = listOfDaysLeap[month]
-    else:
-        doom = listOfDaysCommon[month]
+    doom = listOfDaysLeap[month] if year % 4 == 0 else listOfDaysCommon[month]
     return days[(yearAnchor + ((day - doom) % 7)) % 7]
 
 year = int(input("Enter year: "))
